@@ -47,7 +47,7 @@ namespace DedaMrazovaRadionica
             }
             catch (Exception ec)
             {
-                System.Windows.Forms.MessageBox.Show(ec.Message);
+                /*System.Windows.Forms.MessageBox.Show(ec.Message);*/
                 return null;
             }
 

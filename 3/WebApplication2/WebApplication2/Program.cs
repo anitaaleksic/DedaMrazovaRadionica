@@ -16,6 +16,24 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
+public void ConfigureServices(IServiceCollection services)
+{
+    services.AddCors(setup =>
+    {
+        setup.AddPolicy("CORS", builder =>
+        {
+            builder.AllowAnyHeader()
+                   .AllowAnyMethod()
+                   .AllowAnyOrigin();
+        });
+    });
+    services.AddMvc().AddJsonOptions(p =>
+    {
+        p.JsonSerializerOptions.WriteIndented = true;
+    });
+    services.AddControllers();
+}
+
 app.UseHttpsRedirection();
 
 app.UseCors("CORS");
